@@ -1,0 +1,479 @@
+               full stack development day 7 task ( JS )
+
+//  1. a ) all the countries from the asia continent region using filter function 
+
+  var request = new XMLHttpRequest();
+  request.open("GET","https: restcountries.com/v3.1/all");
+  request.send();
+  request.onload = function()
+  {
+      var data = request.response
+      var result = JSON.parse(data)
+      var asia = result.filter((ele)=>ele.region =="Asia" && ele.continents == "Asia")
+      var result1 = asia.map((ele)=>{console.log("country name :",ele.name.common)})
+  }
+
+output :
+
+ country name : Maldives
+ country name : Pakistan
+ country name : Malaysia
+ country name : Uzbekistan
+ country name : Singapore
+ country name : Qatar
+ country name : Kazakhstan
+ country name : Bahrain
+ country name : India
+ country name : Macau
+ country name : Syria
+ country name : Kyrgyzstan
+ country name : Palestine
+ country name : Taiwan
+ country name : South Korea
+ country name : Iraq
+ country name : Cambodia
+ country name : Sri Lanka
+ country name : Israel
+ country name : Tajikistan
+ country name : Azerbaijan
+ country name : Georgia
+ country name : China
+ country name : Thailand
+ country name : Indonesia
+ country name : Turkmenistan
+ country name : Turkey
+ country name : Iran
+ country name : Lebanon
+ country name : Philippines
+ country name : Kuwait
+ country name : Oman
+ country name : Afghanistan
+ country name : Armenia
+ country name : Bangladesh
+ country name : Laos
+ country name : Nepal
+ country name : Myanmar
+ country name : United Arab Emirates
+ country name : Bhutan
+ country name : Jordan
+ country name : Vietnam
+ country name : Brunei
+ country name : Japan
+ country name : Hong Kong
+ country name : Saudi Arabia
+ country name : North Korea
+ country name : Mongolia
+ country name : Yemen
+
+  ______________________________________________________________________________________________________________________________
+
+
+ // 1. b) all the countries with a population of less than 2 lakhs
+
+  var request = new XMLHttpRequest();
+  request.open("GET","https: restcountries.com/v3.1/all");
+  request.send();
+  request.onload=function()l
+  {
+      var data = request.response
+      var result = JSON.parse(data)
+      var num_pop = result.filter((ele)=>ele.population<200000)
+      var result1 = num_pop.map((ele)=>console.log(ele.name.common +" : "+ele.population))
+  }
+
+output :
+
+ Aruba : 106766
+ Wallis and Futuna : 11750
+ Åland Islands : 29458
+ Pitcairn Islands : 56
+ Seychelles : 98462
+ French Southern and Antarctic Lands : 400
+ Christmas Island : 2072
+ Saint Martin : 38659
+ Heard Island and McDonald Islands : 0
+ Antarctica : 1000
+ Greenland : 56367
+ British Indian Ocean Territory : 3000
+ Saint Lucia : 183629
+ Niue : 1470
+ Saint Barthélemy : 4255
+ Grenada : 112519
+ Isle of Man : 85032
+ Curaçao : 155014
+ Dominica : 71991
+ Faroe Islands : 48865
+ Montserrat : 4922
+ Cook Islands : 18100
+ Bermuda : 63903
+ San Marino : 33938
+ Cayman Islands : 65720
+ Cocos (Keeling) Islands : 544
+ United States Virgin Islands : 106290
+ Norfolk Island : 2302
+ Nauru : 10834
+ Bouvet Island : 0
+ Micronesia : 115021
+ American Samoa : 55197
+ Anguilla : 13452
+ Marshall Islands : 59194
+ Kiribati : 119446
+ Northern Mariana Islands : 57557
+ Guam : 168783
+ Gibraltar : 33691
+ Vatican City : 451
+ Jersey : 100800
+ Tuvalu : 11792
+ Saint Helena, Ascension and Tristan da Cunha : 53192
+ Samoa : 198410
+ Guernsey : 62999
+ Tonga : 105697
+ Saint Kitts and Nevis : 53192
+ Falkland Islands : 2563
+ Palau : 18092
+ Turks and Caicos Islands : 38718
+ British Virgin Islands : 30237
+ Liechtenstein : 38137
+ Andorra : 77265
+ Tokelau : 1411
+ Sint Maarten : 40812
+ United States Minor Outlying Islands : 300
+ Antigua and Barbuda : 97928
+ Saint Pierre and Miquelon : 6069
+ Saint Vincent and the Grenadines : 110947
+ South Georgia : 30
+ Caribbean Netherlands : 25987
+ Monaco : 39244
+ Svalbard and Jan Mayen : 2562
+
+  ______________________________________________________________________________________________________________________________
+
+//  1. c) details of name, captial, flag using forEach function
+
+  var request = new XMLHttpRequest();
+  request.open("GET","https: restcountries.com/v3.1/all",true)
+  request.send()
+   request.onload=function(){
+      var data = request.response
+      var result = JSON.parse(data)
+      var res = result.forEach((ele)=>{console.log(`country name : ${ele.name.common}, capital : ${ele.capital}, flag : ${ele.flag}`)})
+      }
+
+output : 
+
+ country name : Mauritania, capital : Nouakchott, flag : 🇲🇷
+ country name : Aruba, capital : Oranjestad, flag : 🇦🇼
+ country name : Argentina, capital : Buenos Aires, flag : 🇦🇷
+ country name : Sweden, capital : Stockholm, flag : 🇸🇪
+ country name : Maldives, capital : Malé, flag : 🇲🇻
+ country name : Mexico, capital : Mexico City, flag : 🇲🇽
+ country name : New Zealand, capital : Wellington, flag : 🇳🇿
+ country name : Ecuador, capital : Quito, flag : 🇪🇨
+ country name : Wallis and Futuna, capital : Mata-Utu, flag : 🇼🇫
+ country name : Åland Islands, capital : Mariehamn, flag : 🇦🇽
+ country name : Montenegro, capital : Podgorica, flag : 🇲🇪
+ country name : Pakistan, capital : Islamabad, flag : 🇵🇰
+ country name : Pitcairn Islands, capital : Adamstown, flag : 🇵🇳
+ country name : Zambia, capital : Lusaka, flag : 🇿🇲
+ country name : Seychelles, capital : Victoria, flag : 🇸🇨
+ country name : Malaysia, capital : Kuala Lumpur, flag : 🇲🇾
+ country name : Norway, capital : Oslo, flag : 🇳🇴
+ country name : Uzbekistan, capital : Tashkent, flag : 🇺🇿
+ country name : Vanuatu, capital : Port Vila, flag : 🇻🇺
+ country name : French Southern and Antarctic Lands, capital : Port-aux-Français, flag : 🇹🇫
+ country name : Christmas Island, capital : Flying Fish Cove, flag : 🇨🇽
+ country name : Singapore, capital : Singapore, flag : 🇸🇬
+ country name : Suriname, capital : Paramaribo, flag : 🇸🇷
+ country name : Western Sahara, capital : El Aaiún, flag : 🇪🇭
+ country name : Saint Martin, capital : Marigot, flag : 🇲🇫
+ country name : Costa Rica, capital : San José, flag : 🇨🇷
+ country name : Heard Island and McDonald Islands, capital : undefined, flag : 🇭🇲
+ country name : Ireland, capital : Dublin, flag : 🇮🇪
+ country name : Antarctica, capital : undefined, flag : 🇦🇶
+ country name : Australia, capital : Canberra, flag : 🇦🇺
+ country name : Libya, capital : Tripoli, flag : 🇱🇾
+ country name : Qatar, capital : Doha, flag : 🇶🇦
+ country name : Greenland, capital : Nuuk, flag : 🇬🇱
+ country name : Mauritius, capital : Port Louis, flag : 🇲🇺
+ country name : Kazakhstan, capital : Nur-Sultan, flag : 🇰🇿
+ country name : British Indian Ocean Territory, capital : Diego Garcia, flag : 🇮🇴
+ country name : Albania, capital : Tirana, flag : 🇦🇱
+ country name : Bahrain, capital : Manama, flag : 🇧🇭
+ country name : Papua New Guinea, capital : Port Moresby, flag : 🇵🇬
+ country name : Burundi, capital : Gitega, flag : 🇧🇮
+ country name : India, capital : New Delhi, flag : 🇮🇳
+ country name : Uruguay, capital : Montevideo, flag : 🇺🇾
+ country name : Saint Lucia, capital : Castries, flag : 🇱🇨
+ country name : Barbados, capital : Bridgetown, flag : 🇧🇧
+ country name : New Caledonia, capital : Nouméa, flag : 🇳🇨
+ country name : Latvia, capital : Riga, flag : 🇱🇻
+ country name : Estonia, capital : Tallinn, flag : 🇪🇪
+ country name : Niue, capital : Alofi, flag : 🇳🇺
+ country name : Saint Barthélemy, capital : Gustavia, flag : 🇧🇱
+ country name : Puerto Rico, capital : San Juan, flag : 🇵🇷
+ country name : Grenada, capital : St. George's, flag : 🇬🇩
+ country name : Macau, capital : undefined, flag : 🇲🇴
+ country name : Cyprus, capital : Nicosia, flag : 🇨🇾
+ country name : Isle of Man, capital : Douglas, flag : 🇮🇲
+ country name : Greece, capital : Athens, flag : 🇬🇷
+ country name : Syria, capital : Damascus, flag : 🇸🇾
+ country name : Lithuania, capital : Vilnius, flag : 🇱🇹
+ country name : Curaçao, capital : Willemstad, flag : 🇨🇼
+ country name : Dominica, capital : Roseau, flag : 🇩🇲
+ country name : Niger, capital : Niamey, flag : 🇳🇪
+ country name : Kyrgyzstan, capital : Bishkek, flag : 🇰🇬
+ country name : Trinidad and Tobago, capital : Port of Spain, flag : 🇹🇹
+ country name : Togo, capital : Lomé, flag : 🇹🇬
+ country name : Palestine, capital : Ramallah,Jerusalem, flag : 🇵🇸
+ country name : Madagascar, capital : Antananarivo, flag : 🇲🇬
+ country name : Croatia, capital : Zagreb, flag : 🇭🇷
+ country name : Faroe Islands, capital : Tórshavn, flag : 🇫🇴
+ country name : Haiti, capital : Port-au-Prince, flag : 🇭🇹
+ country name : Montserrat, capital : Plymouth, flag : 🇲🇸
+ country name : Cook Islands, capital : Avarua, flag : 🇨🇰
+ country name : Timor-Leste, capital : Dili, flag : 🇹🇱
+ country name : Martinique, capital : Fort-de-France, flag : 🇲🇶
+ country name : Cuba, capital : Havana, flag : 🇨🇺
+ country name : Taiwan, capital : Taipei, flag : 🇹🇼
+ country name : Eswatini, capital : Mbabane, flag : 🇸🇿
+ country name : Ukraine, capital : Kyiv, flag : 🇺🇦
+ country name : Bermuda, capital : Hamilton, flag : 🇧🇲
+ country name : South Korea, capital : Seoul, flag : 🇰🇷
+ country name : Peru, capital : Lima, flag : 🇵🇪
+ country name : Iraq, capital : Baghdad, flag : 🇮🇶
+ country name : Moldova, capital : Chișinău, flag : 🇲🇩
+ country name : San Marino, capital : City of San Marino, flag : 🇸🇲
+ country name : Venezuela, capital : Caracas, flag : 🇻🇪
+ country name : Guyana, capital : Georgetown, flag : 🇬🇾
+ country name : Cayman Islands, capital : George Town, flag : 🇰🇾
+ country name : Cambodia, capital : Phnom Penh, flag : 🇰🇭
+ country name : Cocos (Keeling) Islands, capital : West Island, flag : 🇨🇨
+ country name : Malta, capital : Valletta, flag : 🇲🇹
+ country name : Sri Lanka, capital : Sri Jayawardenepura Kotte, flag : 🇱🇰
+ country name : Israel, capital : Jerusalem, flag : 🇮🇱
+ country name : Sudan, capital : Khartoum, flag : 🇸🇩
+ country name : United States Virgin Islands, capital : Charlotte Amalie, flag : 🇻🇮
+ country name : Eritrea, capital : Asmara, flag : 🇪🇷
+ country name : Mali, capital : Bamako, flag : 🇲🇱
+ country name : Somalia, capital : Mogadishu, flag : 🇸🇴
+ country name : Norfolk Island, capital : Kingston, flag : 🇳🇫
+ country name : Comoros, capital : Moroni, flag : 🇰🇲
+ country name : Nicaragua, capital : Managua, flag : 🇳🇮
+ country name : Russia, capital : Moscow, flag : 🇷🇺
+ country name : Uganda, capital : Kampala, flag : 🇺🇬
+ country name : Nauru, capital : Yaren, flag : 🇳🇷
+ country name : Switzerland, capital : Bern, flag : 🇨🇭
+ country name : Portugal, capital : Lisbon, flag : 🇵🇹
+ country name : Tajikistan, capital : Dushanbe, flag : 🇹🇯
+ country name : South Sudan, capital : Juba, flag : 🇸🇸
+ country name : Bouvet Island, capital : undefined, flag : 🇧🇻
+ country name : Micronesia, capital : Palikir, flag : 🇫🇲
+ country name : American Samoa, capital : Pago Pago, flag : 🇦🇸
+ country name : Czechia, capital : Prague, flag : 🇨🇿
+ country name : Botswana, capital : Gaborone, flag : 🇧🇼
+ country name : Tunisia, capital : Tunis, flag : 🇹🇳
+ country name : Anguilla, capital : The Valley, flag : 🇦🇮
+ country name : Guinea-Bissau, capital : Bissau, flag : 🇬🇼
+ country name : Slovakia, capital : Bratislava, flag : 🇸🇰
+ country name : Marshall Islands, capital : Majuro, flag : 🇲🇭
+ country name : Algeria, capital : Algiers, flag : 🇩🇿
+ country name : Jamaica, capital : Kingston, flag : 🇯🇲
+ country name : Mozambique, capital : Maputo, flag : 🇲🇿
+ country name : Spain, capital : Madrid, flag : 🇪🇸
+ country name : Honduras, capital : Tegucigalpa, flag : 🇭🇳
+ country name : Netherlands, capital : Amsterdam, flag : 🇳🇱
+ country name : South Africa, capital : Pretoria,Bloemfontein,Cape Town, flag : 🇿🇦
+ country name : Azerbaijan, capital : Baku, flag : 🇦🇿
+ country name : North Macedonia, capital : Skopje, flag : 🇲🇰
+ country name : Gambia, capital : Banjul, flag : 🇬🇲
+ country name : Liberia, capital : Monrovia, flag : 🇱🇷
+ country name : Luxembourg, capital : Luxembourg, flag : 🇱🇺
+ country name : Cape Verde, capital : Praia, flag : 🇨🇻
+ country name : Bahamas, capital : Nassau, flag : 🇧🇸
+ country name : Georgia, capital : Tbilisi, flag : 🇬🇪
+ country name : Kiribati, capital : South Tarawa, flag : 🇰🇮
+ country name : Tanzania, capital : Dodoma, flag : 🇹🇿
+ country name : China, capital : Beijing, flag : 🇨🇳
+ country name : Guatemala, capital : Guatemala City, flag : 🇬🇹
+ country name : São Tomé and Príncipe, capital : São Tomé, flag : 🇸🇹
+ country name : Germany, capital : Berlin, flag : 🇩🇪
+ country name : Sierra Leone, capital : Freetown, flag : 🇸🇱
+ country name : Chad, capital : N'Djamena, flag : 🇹🇩
+ country name : United Kingdom, capital : London, flag : 🇬🇧
+ country name : Slovenia, capital : Ljubljana, flag : 🇸🇮
+ country name : Thailand, capital : Bangkok, flag : 🇹🇭
+ country name : Indonesia, capital : Jakarta, flag : 🇮🇩
+ country name : Northern Mariana Islands, capital : Saipan, flag : 🇲🇵
+ country name : Guam, capital : Hagåtña, flag : 🇬🇺
+ country name : Finland, capital : Helsinki, flag : 🇫🇮
+ country name : Mayotte, capital : Mamoudzou, flag : 🇾🇹
+ country name : Gibraltar, capital : Gibraltar, flag : 🇬🇮
+ country name : Turkmenistan, capital : Ashgabat, flag : 🇹🇲
+ country name : Kosovo, capital : Pristina, flag : 🇽🇰
+ country name : Ivory Coast, capital : Yamoussoukro, flag : 🇨🇮
+ country name : Morocco, capital : Rabat, flag : 🇲🇦
+ country name : Dominican Republic, capital : Santo Domingo, flag : 🇩🇴
+ country name : Ghana, capital : Accra, flag : 🇬🇭
+ country name : Vatican City, capital : Vatican City, flag : 🇻🇦
+ country name : Jersey, capital : Saint Helier, flag : 🇯🇪
+ country name : Turkey, capital : Ankara, flag : 🇹🇷
+ country name : Tuvalu, capital : Funafuti, flag : 🇹🇻
+ country name : Iran, capital : Tehran, flag : 🇮🇷
+ country name : Egypt, capital : Cairo, flag : 🇪🇬
+ country name : Denmark, capital : Copenhagen, flag : 🇩🇰
+ country name : Kenya, capital : Nairobi, flag : 🇰🇪
+ country name : Bulgaria, capital : Sofia, flag : 🇧🇬
+ country name : Zimbabwe, capital : Harare, flag : 🇿🇼
+ country name : Angola, capital : Luanda, flag : 🇦🇴
+ country name : Nigeria, capital : Abuja, flag : 🇳🇬
+ country name : Poland, capital : Warsaw, flag : 🇵🇱
+ country name : Senegal, capital : Dakar, flag : 🇸🇳
+ country name : Saint Helena, Ascension and Tristan da Cunha, capital : Jamestown, flag : 🇸🇭
+ country name : Lebanon, capital : Beirut, flag : 🇱🇧
+ country name : Samoa, capital : Apia, flag : 🇼🇸
+ country name : Philippines, capital : Manila, flag : 🇵🇭
+ country name : Guernsey, capital : St. Peter Port, flag : 🇬🇬
+ country name : El Salvador, capital : San Salvador, flag : 🇸🇻
+ country name : Kuwait, capital : Kuwait City, flag : 🇰🇼
+ country name : Tonga, capital : Nuku'alofa, flag : 🇹🇴
+ country name : Oman, capital : Muscat, flag : 🇴🇲
+ country name : Afghanistan, capital : Kabul, flag : 🇦🇫
+ country name : Saint Kitts and Nevis, capital : Basseterre, flag : 🇰🇳
+ country name : Central African Republic, capital : Bangui, flag : 🇨🇫
+ country name : Serbia, capital : Belgrade, flag : 🇷🇸
+ country name : Armenia, capital : Yerevan, flag : 🇦🇲
+ country name : Bangladesh, capital : Dhaka, flag : 🇧🇩
+ country name : Laos, capital : Vientiane, flag : 🇱🇦
+ country name : Chile, capital : Santiago, flag : 🇨🇱
+ country name : French Polynesia, capital : Papeetē, flag : 🇵🇫
+ country name : Panama, capital : Panama City, flag : 🇵🇦
+ country name : United States, capital : Washington, D.C., flag : 🇺🇸
+ country name : Nepal, capital : Kathmandu, flag : 🇳🇵
+ country name : Myanmar, capital : Naypyidaw, flag : 🇲🇲
+ country name : Falkland Islands, capital : Stanley, flag : 🇫🇰
+ country name : Hungary, capital : Budapest, flag : 🇭🇺
+ country name : Palau, capital : Ngerulmud, flag : 🇵🇼
+ country name : Equatorial Guinea, capital : Malabo, flag : 🇬🇶
+ country name : Guinea, capital : Conakry, flag : 🇬🇳
+ country name : United Arab Emirates, capital : Abu Dhabi, flag : 🇦🇪
+ country name : Turks and Caicos Islands, capital : Cockburn Town, flag : 🇹🇨
+ country name : British Virgin Islands, capital : Road Town, flag : 🇻🇬
+ country name : Liechtenstein, capital : Vaduz, flag : 🇱🇮
+ country name : Bosnia and Herzegovina, capital : Sarajevo, flag : 🇧🇦
+ country name : Malawi, capital : Lilongwe, flag : 🇲🇼
+ country name : Bhutan, capital : Thimphu, flag : 🇧🇹
+ country name : Cameroon, capital : Yaoundé, flag : 🇨🇲
+ country name : Andorra, capital : Andorra la Vella, flag : 🇦🇩
+ country name : Guadeloupe, capital : Basse-Terre, flag : 🇬🇵
+ country name : Republic of the Congo, capital : Brazzaville, flag : 🇨🇬
+ country name : Réunion, capital : Saint-Denis, flag : 🇷🇪
+ country name : Burkina Faso, capital : Ouagadougou, flag : 🇧🇫
+ country name : Jordan, capital : Amman, flag : 🇯🇴
+ country name : DR Congo, capital : Kinshasa, flag : 🇨🇩
+ country name : Tokelau, capital : Fakaofo, flag : 🇹🇰
+ country name : Vietnam, capital : Hanoi, flag : 🇻🇳
+ country name : Sint Maarten, capital : Philipsburg, flag : 🇸🇽
+ country name : Belgium, capital : Brussels, flag : 🇧🇪
+ country name : United States Minor Outlying Islands, capital : Washington DC, flag : 🇺🇲
+ country name : Brazil, capital : Brasília, flag : 🇧🇷
+ country name : Belize, capital : Belmopan, flag : 🇧🇿
+ country name : Antigua and Barbuda, capital : Saint John's, flag : 🇦🇬
+ country name : Paraguay, capital : Asunción, flag : 🇵🇾
+ country name : Benin, capital : Porto-Novo, flag : 🇧🇯
+ country name : Brunei, capital : Bandar Seri Begawan, flag : 🇧🇳
+ country name : Bolivia, capital : Sucre, flag : 🇧🇴
+ country name : Djibouti, capital : Djibouti, flag : 🇩🇯
+ country name : French Guiana, capital : Cayenne, flag : 🇬🇫
+ country name : Canada, capital : Ottawa, flag : 🇨🇦
+ country name : Saint Pierre and Miquelon, capital : Saint-Pierre, flag : 🇵🇲
+ country name : Japan, capital : Tokyo, flag : 🇯🇵
+ country name : Rwanda, capital : Kigali, flag : 🇷🇼
+ country name : Saint Vincent and the Grenadines, capital : Kingstown, flag : 🇻🇨
+ country name : Iceland, capital : Reykjavik, flag : 🇮🇸
+ country name : Belarus, capital : Minsk, flag : 🇧🇾
+ country name : Hong Kong, capital : City of Victoria, flag : 🇭🇰
+ country name : Lesotho, capital : Maseru, flag : 🇱🇸
+ country name : Fiji, capital : Suva, flag : 🇫🇯
+ country name : Austria, capital : Vienna, flag : 🇦🇹
+ country name : Colombia, capital : Bogotá, flag : 🇨🇴
+ country name : Gabon, capital : Libreville, flag : 🇬🇦
+ country name : Saudi Arabia, capital : Riyadh, flag : 🇸🇦
+ country name : South Georgia, capital : King Edward Point, flag : 🇬🇸
+ country name : Ethiopia, capital : Addis Ababa, flag : 🇪🇹
+ country name : Caribbean Netherlands, capital : Kralendijk, flag : 🇧🇶
+ country name : Monaco, capital : Monaco, flag : 🇲🇨
+ country name : North Korea, capital : Pyongyang, flag : 🇰🇵
+ country name : Italy, capital : Rome, flag : 🇮🇹
+ country name : Namibia, capital : Windhoek, flag : 🇳🇦
+ country name : Mongolia, capital : Ulan Bator, flag : 🇲🇳
+ country name : Solomon Islands, capital : Honiara, flag : 🇸🇧
+ country name : Yemen, capital : Sana'a, flag : 🇾🇪
+ country name : Romania, capital : Bucharest, flag : 🇷🇴
+ country name : Svalbard and Jan Mayen, capital : Longyearbyen, flag : 🇸🇯
+ country name : France, capital : Paris, flag : 🇫🇷
+
+  ______________________________________________________________________________________________________________________________
+
+
+//  1. d ) total population of countries using reduse function
+
+  var request = new XMLHttpRequest();
+  request.open("GET","https: restcountries.com/v3.1/all");
+  request.send();
+  request.onload=function()
+  {
+      var data = request.response
+      var result = JSON.parse(data)
+      var total_pop = result.reduce((acc,cv)=>acc + cv.population,0)
+      console.log(total_pop);
+  }
+
+output : 
+
+7777721563
+
+  ______________________________________________________________________________________________________________________________
+
+//  1. e ) which countries use US dollar
+
+var request = new XMLHttpRequest();
+request.open("GET","https: restcountries.com/v2/all")
+request.send()
+request.onload = function()
+{
+    var data = request.response
+    var result = JSON.parse(data)
+    var result1 = result.filter((ele)=>{
+    for(var i in ele.currencies)
+    {
+        if(ele.currencies[i].code=="USD")
+        {
+            console.log(ele.name);
+        }
+    }
+})
+
+}
+
+output :
+
+  American Samoa
+  Bonaire, Sint Eustatius and Saba
+  British Indian Ocean Territory
+  Virgin Islands (British)
+  Virgin Islands (U.S.)
+  Cambodia
+  Ecuador
+  El Salvador
+  Guam
+  Marshall Islands
+  Micronesia (Federated States of)
+  Northern Mariana Islands
+  Palau
+  Panama
+  Puerto Rico
+  Timor-Leste
+  Turks and Caicos Islands
+  United States of America
+
+  ______________________________________________________________________________________________________________________________
